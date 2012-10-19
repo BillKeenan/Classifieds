@@ -7,11 +7,11 @@ The Steps (and tags) will be
 
 * Step 1
 Project running with custom membership provider
-* SHA:37f9088aa7
+SHA:37f9088aa7
 
 * Step 2
 Implemented membership provider using RavenDB, and SHA passwording
-* SHA:3802b58821
+SHA:3802b58821
 
 * Step 3
 Create DataModel and sample data for classifieds items

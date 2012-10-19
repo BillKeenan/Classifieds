@@ -54,7 +54,8 @@ namespace Classifieds.services.UserServices
                     return false;
                 }
 
-                var success = SHA1.AreEqual(password, System.Configuration.ConfigurationManager.AppSettings["salt"], user.Password);
+                var salt = String.Format("{0}{1}", System.Configuration.ConfigurationManager.AppSettings["salt"], email);
+                var success = SHA1.AreEqual(password,salt, user.Password);
 
                 return success;
             }
