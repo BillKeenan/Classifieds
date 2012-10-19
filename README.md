@@ -2,6 +2,30 @@ An mvc4 classifieds project to demonstrate use of RavenDB, IOC and various other
 
 I will update this ReadMe as the project is built out.
 
+The Steps (and tags) will be
+
+
+* Step 1
+Project running with custom membership provider
+* SHA:37f9088aa7
+
+* Step 2
+Implemented membership provider using RavenDB, and SHA passwording
+* SHA:3802b58821
+
+* Step 3
+Create DataModel and sample data for classifieds items
+
+* Step 4
+Add Facebook Auth to allow users to create accounts
+
+* Step 5
+Allow users to post items
+
+* Step 6
+RSS feeds for categories and Search
+
+# Build Notes
 # Step 2
 
 * SHA:3802b58
