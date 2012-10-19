@@ -1,4 +1,4 @@
-﻿@model Classifieds.Models.LoginModel
+﻿@model Classifieds.Models.AdminAccountLogin
 
 @{
     ViewBag.Title = "Log in";
@@ -18,9 +18,9 @@
         <legend>Log in Form</legend>
         <ol>
             <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
             </li>
             <li>
                 @Html.LabelFor(m => m.Password)
@@ -38,11 +38,6 @@
         @Html.ActionLink("Register", "Register") if you don't have an account.
     </p>
 }
-</section>
-
-<section class="social" id="socialLoginForm">
-    <h2>Use another service to log in.</h2>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
 </section>
 
 @section Scripts {

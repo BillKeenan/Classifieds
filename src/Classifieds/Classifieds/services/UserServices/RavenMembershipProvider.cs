@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using Classifieds.Models;
+using Classifieds.services.data;
 using WebMatrix.WebData;
 
 namespace Classifieds.services.UserServices
@@ -39,9 +41,23 @@ namespace Classifieds.services.UserServices
             throw new NotImplementedException();
         }
 
-        public override bool ValidateUser(string username, string password)
+        public override bool ValidateUser(string email, string password)
         {
-            return true;
+            using (var sess = RavenStore.Instance("AdminUsers").OpenSession())
+            {
+                var obId= String.Format("AdminAccount/{0}", email);
+                var user =
+                    sess.Load<AdminAccount>( obId);
+
+                if (user == null)
+                {
+                    return false;
+                }
+
+                var success = SHA1.AreEqual(password, System.Configuration.ConfigurationManager.AppSettings["salt"], user.Password);
+
+                return success;
+            }
         }
 
         public override bool UnlockUser(string userName)
