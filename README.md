@@ -2,6 +2,14 @@ An mvc4 classifieds project to demonstrate use of RavenDB, IOC and various other
 
 I will update this ReadMe as the project is built out.
 
+##Step 1 Links
+Commit
+
+* SHA: 37f9088aa71ef092f3bd19776fb5e0eb8ebb0460
+
+Tag
+https://github.com/billCreativeD/Classifieds/zipball/Step1
+
 # Create The Project
 ````VS 2012 File->New->MVC4````
 
