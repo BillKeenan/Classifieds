@@ -4,6 +4,9 @@ I will update this ReadMe as the project is built out.
 
 # Step 2
 
+* SHA:3802b58
+Tag: Step2
+
 ##Add Raven
 
 firstly you should get http://ravendb.org , simply download version 1.2 then run start.bat located in the server folder.
