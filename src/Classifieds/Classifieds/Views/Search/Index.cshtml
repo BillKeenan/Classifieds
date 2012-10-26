@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Classifieds.Indexes.CategoryFirstMapReduce.Result>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Categories</h2>
+@foreach(var result in Model)
+{
+    <div>@result.First:@result.Count</div>
+}

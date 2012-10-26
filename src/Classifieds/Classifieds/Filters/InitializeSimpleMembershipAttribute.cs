@@ -1,11 +1,5 @@
-﻿using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Threading;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Classifieds.services.UserServices;
-using WebMatrix.WebData;
-using Classifieds.Models;
 
 namespace Classifieds.Filters
 {
