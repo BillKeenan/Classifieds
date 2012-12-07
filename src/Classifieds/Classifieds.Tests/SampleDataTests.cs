@@ -16,6 +16,43 @@ namespace Classifieds.Tests
 
 
         [TestMethod]
+        public void CreateTemplates()
+        {
+            using (var sess = RavenStore.Instance("templates").OpenSession())
+            {
+                //auto
+                var template = new Template{Name="Auto"};
+                template.CategoryDefs.Add(
+                    new ListingProperty
+                        {
+                            Name = "Type of Vehicle",
+                            CategoryType = ListingProperty.CatType.Text,
+                            Samples = new List<string> {"Car", "Truck", "Motorcycle"}
+                        });
+
+                template.CategoryDefs.Add(
+                     new ListingProperty
+                     {
+                         Name = "Make of Vehicle",
+                         CategoryType = ListingProperty.CatType.Text,
+                         Samples = new List<string> { "Ford", "Subaru", "Volkswagon" }
+                     });
+
+
+                 template.CategoryDefs.Add(
+                     new ListingProperty
+                     {
+                         Name = "Year of Vehicle",
+                         CategoryType = ListingProperty.CatType.Int,
+                          Samples = new List<string> {"1995", "2010"},
+                          PropType = ListingProperty.Storage.Tag
+                     });       
+                
+                sess.Store(template,String.Format("Templates/{0}",template.Name));
+                sess.SaveChanges();
+            }
+        }
+        [TestMethod]
         public void CreateItems()
         {
             RavenStore.Instance("classifieds").DatabaseCommands.DeleteByIndex(
@@ -41,7 +78,8 @@ namespace Classifieds.Tests
                             {
                                 Description =
                                     string.Format(" A {0} {1}, the model is {2}", year, brand, model),
-                                    Categories = categories
+                                    Categories = categories,
+                                    Image = "/images/new-kitten.jpg"
                             };
 
                             item.Tags.AddRange(new[] { model, year, brand });
@@ -61,7 +99,7 @@ namespace Classifieds.Tests
         public void CreateIndexes()
         {
             var doc =RavenStore.Instance("classifieds");
-            Raven.Client.Indexes.IndexCreation.CreateIndexes(typeof(FourthCategorySearch).Assembly, doc);
+            Raven.Client.Indexes.IndexCreation.CreateIndexes(typeof(CategorySearch).Assembly, doc);
 
         }
 

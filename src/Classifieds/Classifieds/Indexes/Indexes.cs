@@ -9,7 +9,7 @@ using Raven.Client.Indexes;
 namespace Classifieds
 {
 
-    public class FourthCategorySearch : AbstractIndexCreationTask<Item, FourthCategorySearch.Result>
+    public class CategorySearch : AbstractIndexCreationTask<Item, CategorySearch.Result>
     {
         public class Result
         {
@@ -19,7 +19,7 @@ namespace Classifieds
             public string Fourth { get; set; }
         }
 
-        public FourthCategorySearch()
+        public CategorySearch()
         {
             Map =  CategoryMap.TheMap;
         }

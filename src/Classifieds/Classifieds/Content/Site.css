@@ -1,4 +1,15 @@
-﻿html {
+﻿img.item-preview {
+    width: 100px;
+    height: 100px;
+}
+
+div.item-preview {
+    width: 120px;
+    height: 200px;
+    float: left;
+}
+
+html {
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;

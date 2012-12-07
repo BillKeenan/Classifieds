@@ -16,6 +16,7 @@ SHA:3802b58821
 * Step 3
 Create DataModel and sample data for classifieds items
 
+
 * Step 4
 Testing Views
 

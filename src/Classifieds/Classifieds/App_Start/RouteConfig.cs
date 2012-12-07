@@ -13,6 +13,14 @@ namespace Classifieds
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "CategorySearch",
+                url: "search/{first}/{second}/{third}/{fourth}",
+                defaults: new { controller = "Search", action = "Category",  fourth = UrlParameter.Optional, second = UrlParameter.Optional, third= UrlParameter.Optional }
+            );
+
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -21,5 +21,7 @@ namespace Classifieds.Models
         public List<String> Tags { get; set; }
 
         public List<string> Categories { get; set; }
+
+        public string Image { get; set; }
     }
 }

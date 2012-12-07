@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Classifieds.services.data;
 
 namespace Classifieds
 {
@@ -18,11 +19,17 @@ namespace Classifieds
         {
             AreaRegistration.RegisterAllAreas();
 
+            var doc = RavenStore.Instance("classifieds");
+            Raven.Client.Indexes.IndexCreation.CreateIndexes(typeof(CategorySearch).Assembly, doc);
+          
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
         }
+
+      
     }
 }

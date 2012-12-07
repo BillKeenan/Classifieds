@@ -27,5 +27,16 @@ namespace Classifieds.Tests
 
             Assert.IsTrue(services.data.SHA1.AreEqual(plain, salt,crypt));
         }
+
+        [TestMethod]
+        public void GetSalt()
+        {
+            const string plain = "password";
+            const string salt = "90sa098asdfjkbill@bigmojo.net";
+
+            var crypt = services.data.SHA1.GetSha(plain, salt);
+
+            Assert.IsTrue(services.data.SHA1.AreEqual(plain, salt, crypt));
+        }
     }
 }
