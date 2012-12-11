@@ -1,0 +1,19 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<html>
+    <head>
+        <title>Create</title>
+    </head>
+    <body>
+        <div>
+            <h1>What are you posting?</h1>
+            @foreach (var template in Model)
+            {
+                  <a href="PostClassified/template/@template">@template </a><br/>
+            }
+        </div>
+    </body>

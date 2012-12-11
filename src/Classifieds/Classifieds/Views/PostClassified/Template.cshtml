@@ -1,0 +1,33 @@
+﻿@using Classifieds.Models
+@model Classifieds.Models.Template
+
+@{
+    ViewBag.Title = "title";
+}
+
+
+@using(Html.BeginForm("Create", "PostClassified", FormMethod.Post)){
+<h2>Post Your Ad</h2>
+foreach (var listingProperty in Model.CategoryDefs)
+{
+    @listingProperty.Name
+    ;
+    switch (listingProperty.CategoryType)
+    {
+        case ListingProperty.CatType.Text:
+        case ListingProperty.CatType.Int:
+            <div>
+                <input valType="@listingProperty.CategoryType" maxlength="@listingProperty.MaxLength" type="text" name="@listingProperty.Name"/> 
+                for Example:
+                @foreach (var val in listingProperty.Samples)
+                {
+                    @(val)@:,
+                }
+            </div>
+            break;
+
+    }
+
+}       
+<input type="submit" class="myclassname"/>
+}

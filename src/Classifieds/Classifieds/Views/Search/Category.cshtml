@@ -1,0 +1,33 @@
+﻿@using Classifieds
+@using Classifieds.Models
+@model IEnumerable<Classifieds.ViewModel.CategoryCount>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@if (Model != null && Model.Any())
+{
+    //Output category breadcrumb
+    for (var i = 0; i < (Model.First().Depth  );i++ )
+    {
+        <a href="/search/@Model.First().GetPath(i)">@Model.First().Categories[i]@(":") </a>
+    }
+
+    <h3>Sub-Categories</h3>
+    foreach (var categoryCount in Model)
+    {
+        if (!String.IsNullOrEmpty(categoryCount.Categories.Last())){
+
+             <div><a href="/search/@categoryCount.GetPath(@categoryCount.Categories.Count())">@categoryCount.Categories.Last():@categoryCount.Count</a></div>
+        }
+}
+}
+
+<h3>Items</h3>
+
+@foreach(Item item in ViewBag.Results)
+{
+    <div class="item-preview" style="background-image:url(@ImageHelper.MediaHelper(item.Image,300,300,true))"><div class="centeredTitle"><span class="itemDescription">@item.Description</span></div></div>
+}
