@@ -66,7 +66,7 @@ namespace Classifieds.Tests
                 var models = new[] { "coupe", "truck", "wagon" };
                 var years = new[] { "1991", "1996", "2000", "2012" };
 
-
+                var rnd = new Random();
                 foreach (var brand in brands)
                 {
                     foreach (var year in years)
@@ -79,7 +79,8 @@ namespace Classifieds.Tests
                                 Description =
                                     string.Format(" A {0} {1}, the model is {2}", year, brand, model),
                                     Categories = categories,
-                                    Image = "/images/new-kitten.jpg"
+                                Image = "0f8fad5b-d9cb-469f-a165-70867728950e",
+                                    Price = rnd.Next(100)
                             };
 
                             item.Tags.AddRange(new[] { model, year, brand });

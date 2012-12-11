@@ -8,5 +8,5 @@
 <h2>Categories</h2>
 @foreach(var result in Model)
 {
-    <div>@result.Categories.First():@result.Count</div>
+    <div><a href="@result.Categories.First()">@result.Categories.First()</a>@result.Count</div>
 }
